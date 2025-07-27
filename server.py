@@ -68,6 +68,7 @@ retriever = vectorstore.as_retriever()
 
 prompt = ChatPromptTemplate.from_messages([
     ("system", "You are a helpful assistant." + "Today's date is " + date.today().strftime('%Y-%m-%d')),
+    ("system", "Keep answers to 1-2 sentences"),
     ("system", "Context from resume:\n{context}"),
     MessagesPlaceholder(variable_name="messages"),
     ("human", "{input}"),
