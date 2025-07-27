@@ -26,6 +26,7 @@ def extract_text_from_pdf(pdf_path):
 # Load env
 load_dotenv()
 os.environ["GOOGLE_API_KEY"] = os.getenv("GOOGLE_API_KEY")
+PGVECTOR_CONN = os.getenv("PGVECTOR_CONN")
 
 # FastAPI setup
 app = FastAPI()
@@ -54,7 +55,6 @@ chunks = splitter.create_documents([resume_text])
 embedding = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
 
 # Store in pgvector
-PGVECTOR_CONN = "postgresql+psycopg2://postgres:@localhost:5432/postgres"
 COLLECTION_NAME = "resume_chunks"
 
 vectorstore = PGVector.from_documents(
