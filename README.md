@@ -1,0 +1,1 @@
+In this project, I set up an LLM application with RAG (Retrieval Augmented Generation) to read from my resume to provide a basic chatbot that can answer questions with this context. The application uses pgvector and Hugging Face embeddings. I created this as a proof of concept and demo to acquaint myself with AI technologies.
